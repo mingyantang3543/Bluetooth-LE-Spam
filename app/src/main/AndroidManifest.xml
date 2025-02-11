@@ -1,76 +1,451 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-    <!-- Request legacy Bluetooth permissions on older devices. -->
+    android:versionCode="307088"
+    android:versionName="3.7.88"
+    android:compileSdkVersion="29"
+    android:compileSdkVersionCodename="10"
+    package="com.coloros.oppopods"
+    platformBuildVersionCode="29"
+    platformBuildVersionName="10">
+    <uses-sdk
+        android:minSdkVersion="29"
+        android:targetSdkVersion="29"/>
     <uses-permission
-        android:name="android.permission.BLUETOOTH"
-        android:maxSdkVersion="30" />
+        android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission
-        android:name="android.permission.BLUETOOTH_ADMIN"
-        android:maxSdkVersion="30" />
-    <!--
-         Needed only if your app looks for Bluetooth devices.
-         If your app doesn't use Bluetooth scan results to derive physical
-         location information, you can
-         <a href="#assert-never-for-location">strongly assert that your app
-         doesn't derive physical location</a>.
-    -->
-
-    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
-
-    <!--
-         Needed only if your app makes the device discoverable to Bluetooth
-         devices.
-    -->
-    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
-
-    <!--
-         Needed only if your app communicates with already-paired Bluetooth
-         devices.
-    -->
-    <!--Needed only if your app uses Bluetooth scan results to derive physical location. -->
-    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" /> 
-
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
+        android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission
+        android:name="android.permission.INTERNET"/>
+    <uses-permission
+        android:name="oppo.permission.OPPO_COMPONENT_SAFE"/>
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"/>
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_PRIVILEGED"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission
+        android:name="android.permission.GRANT_RUNTIME_PERMISSIONS"/>
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission
+        android:name="android.permission.REAL_GET_TASKS"/>
+    <uses-permission
+        android:name="android.permission.START_ACTIVITIES_FROM_BACKGROUND"/>
+    <uses-permission
+        android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission
+        android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission
+        android:name="com.oppo.permission.safe.SAU"/>
+    <uses-permission
+        android:name="heytap.speechassist.permission.ACTIVATE_SPEECH_ASSIST"/>
+    <uses-permission
+        android:name="com.oppo.permission.safe.IOT"/>
+    <uses-permission
+        android:name="com.oppo.permission.safe.SECURITY"/>
+    <uses-permission
+        android:name="com.oplus.permission.safe.SECURITY"/>
+    <uses-permission
+        android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission
+        android:name="android.permission.VIBRATE"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
     <uses-feature
-        android:name="android.hardware.bluetooth_le"
-        android:required="true" />
-
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
-
+        android:name="android.hardware.location.gps"/>
+    <uses-permission
+        android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission
+        android:name="com.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher"
+        android:theme="@7f110017"
+        android:label="@7f100028"
+        android:icon="@7f0803e5"
+        android:name="com.coloros.oppopods.OppoPodsApp"
+        android:allowBackup="false"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BluetoothLESpam.NoActionBar"
-        tools:targetApi="31">
-
-        <service android:foregroundServiceType="specialUse" android:name=".Services.AdvertisementForegroundService" />
-
-        <service android:foregroundServiceType="location" android:name=".Services.BluetoothLeScanForegroundService" />
-
-        <receiver android:name=".Services.AdvertisementForegroundService$ToggleButtonListener" />
-
-        <receiver android:name=".Services.AdvertisementForegroundService$StopButtonListener" />
-
+        android:defaultToDeviceProtectedStorage="true"
+        android:networkSecurityConfig="@7f130009"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory">
+        <meta-data
+            android:name="versionCommit"
+            android:value="c22acd8"/>
+        <meta-data
+            android:name="versionDate"
+            android:value="210625"/>
+        <meta-data
+            android:name="AppCode"
+            android:value="20159"/>
+        <meta-data
+            android:name="color_material_enable"
+            android:value="true"/>
+        <meta-data
+            android:name="OppoPermissionKey"
+            android:value="@7f1002f9"/>
+        <meta-data
+            android:name="AppPlatformKey"
+            android:value="@7f100311"/>
         <activity
-            android:name=".MainActivity"
+            android:theme="@7f11001b"
+            android:label="@7f100255"
+            android:name="com.coloros.oppopods.settings.main.FunctionsDisplayActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.BluetoothLESpam.NoActionBar">
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|mnc|mcc"
+            android:resizeableActivity="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action
+                    android:name="oppo.intent.action.OPPO_PODS_DISPLAY_EARPHONE"/>
+                <category
+                    android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity
+            android:theme="@7f11001b"
+            android:label="@7f1000f0"
+            android:name="com.coloros.oppopods.settings.functionlist.devicecontrol.DeviceControlActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|mnc|mcc"
+            android:resizeableActivity="true">
+            <intent-filter>
+                <category
+                    android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@7f11001b"
+            android:name="com.coloros.oppopods.settings.functionlist.devicecontrol.DeviceMergeControlActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|mnc|mcc"
+            android:resizeableActivity="true">
+            <intent-filter>
+                <category
+                    android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@7f11001b"
+            android:name="com.coloros.oppopods.settings.functionlist.zenmode.main.ZenModeMainActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|mnc|mcc"
+            android:resizeableActivity="false">
+            <intent-filter>
+                <category
+                    android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@7f11001a"
+            android:name="com.coloros.oppopods.settings.functionlist.multiDevicesConnection.MultiplyDevicesConnectionActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|mnc|mcc"
+            android:resizeableActivity="false">
+            <intent-filter>
+                <category
+                    android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@7f11001b"
+            android:name="com.coloros.oppopods.settings.functionlist.zenmode.scene.ZenModeSceneActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|mnc|mcc"
+            android:resizeableActivity="false">
+            <intent-filter>
+                <category
+                    android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@7f11001b"
+            android:label="@7f100190"
+            android:name="com.coloros.oppopods.settings.functionlist.findmode.FindEarphoneSettings"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|mnc|mcc"
+            android:resizeableActivity="true">
+            <intent-filter>
+                <category
+                    android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@7f11001a"
+            android:name="com.coloros.oppopods.settings.functionlist.introduction.EarphoneUsageGuideActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|mnc|mcc"
+            android:resizeableActivity="false">
+            <intent-filter>
+                <category
+                    android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@7f110018"
+            android:name="com.coloros.oppopods.map.MapActivity"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|screenLayout|orientation|keyboardHidden"
+            android:resizeableActivity="false">
+            <intent-filter>
+                <category
+                    android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@7f1101a1"
+            android:name="com.coloros.oppopods.connectiondialog.ConnectionDialogActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="user"
+            android:configChanges="screenSize|orientation|keyboardHidden|mnc|mcc"
+            android:resizeableActivity="false">
+            <intent-filter>
+                <category
+                    android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@7f110440"
+            android:name="com.coloros.oppopods.statement.PrivacyStatementActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|mnc|mcc"
+            android:resizeableActivity="false">
+            <intent-filter>
+                <category
+                    android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@7f11001a"
+            android:name="com.coloros.oppopods.net.EarWebViewActivity"
+            android:exported="false"
+            android:process=":webview"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|mnc|mcc"
+            android:resizeableActivity="false">
+            <intent-filter>
+                <category
+                    android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@7f1101a1"
+            android:name="com.coloros.oppopods.settings.functionlist.detection.CompactnessDetectionActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|mnc|mcc"
+            android:resizeableActivity="false"/>
+        <activity
+            android:theme="@7f1101a1"
+            android:name="com.coloros.oppopods.connectiondialog.guide.UsageGuideDialogActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|mnc|mcc"
+            android:resizeableActivity="false"/>
+        <activity
+            android:theme="@7f110156"
+            android:name="com.coloros.oppopods.connectiondialog.guide.UsageGuideConnectDialogActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|mnc|mcc"
+            android:resizeableActivity="false"/>
+        <activity
+            android:theme="@7f110443"
+            android:name="com.coloros.oppopods.settings.functionlist.detection.HearingEnhancementDetectionActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="true"/>
+        <activity
+            android:name="com.coloros.oppopods.related.SetGate"
+            android:permission="com.oppo.permission.safe.IOT"
+            android:exported="true"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <data
+                    android:scheme="oppopods"
+                    android:host="com.coloros.oppopods"
+                    android:pathPrefix="/headset"/>
+                <action
+                    android:name="android.intent.action.VIEW"/>
+                <category
+                    android:name="android.intent.category.DEFAULT"/>
+                <category
+                    android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <provider
+            android:name="com.coloros.oppopods.providers.OppoPodsProvider"
+            android:permission="oppo.permission.OPPO_COMPONENT_SAFE"
+            android:exported="true"
+            android:multiprocess="false"
+            android:authorities="com.coloros.oppopods.providers.OppoPodsProvider"/>
+        <provider
+            android:name="com.coloros.oppopods.related.MyDeviceProvider"
+            android:permission="com.oppo.permission.safe.IOT"
+            android:exported="true"
+            android:multiprocess="false"
+            android:authorities="com.coloros.oppopods.related.MyDeviceProvider">
+            <intent-filter>
+                <action
+                    android:name="com.heytap.mydevices.NOTIFY_LINKAGE_EVENT"/>
+            </intent-filter>
+        </provider>
+        <service
+            android:name="com.coloros.oppopods.service.OppoPodsService"
+            android:permission="oppo.permission.OPPO_COMPONENT_SAFE"
+            android:process="com.coloros.oppopods"
+            android:directBootAware="true">
+            <intent-filter>
+                <action
+                    android:name="oppo.intent.action.OPPO_PODS_SERVICE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.coloros.oppopods.service.MultiDeviceCoreService"
+            android:permission="oppo.permission.OPPO_COMPONENT_SAFE"
+            android:process="com.coloros.oppopods"
+            android:directBootAware="true">
+            <intent-filter>
+                <action
+                    android:name="com.oppopods.start.service_support_multi_device"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.coloros.oppopods.service.OppoPodsLocationService"
+            android:exported="false"/>
+        <service
+            android:name="com.qualcomm.qti.gaiacontrol.services.GAIAGATTBLEService"
+            android:exported="false"/>
+        <service
+            android:name="com.qualcomm.qti.gaiacontrol.services.GAIABREDRService"
+            android:exported="false"/>
+        <service
+            android:name="com.coloros.oppopods.service.OppoPodsIntentService"
+            android:exported="false"/>
+        <receiver
+            android:name="com.coloros.oppopods.receiver.SmartEarphoneBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action
+                    android:name="oppo.intent.action.OPPOPODS_RESET_ALARM"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.coloros.oppopods.NotifierManager$PendingIntentBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action
+                    android:name="oppo.intent.action.OPPO_PODS_NEW_CONNECTION"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.coloros.oppopods.receiver.BluetoothStateReceiver"
+            android:permission="oppo.permission.OPPO_COMPONENT_SAFE"
+            android:exported="true">
+            <intent-filter>
+                <action
+                    android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+                <action
+                    android:name="oppo.bluetooth.device.action.BOND_STATE_CHANGED"/>
+                <action
+                    android:name="oppo.intent.action.OPPOPODS_BT_SCAN"/>
+                <action
+                    android:name="oppo.intent.action.OPPOPODS_SET_MAC"/>
+                <action
+                    android:name="android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED"/>
+                <action
+                    android:name="android.bluetooth.a2dp.profile.action.CONNECTION_STATE_CHANGED"/>
+                <action
+                    android:name="android.bluetooth.input.profile.action.CONNECTION_STATE_CHANGED"/>
+                <action
+                    android:name="android.bluetooth.device.action.ACL_CONNECTED"/>
+                <action
+                    android:name="android.bluetooth.device.action.ACL_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.coloros.oppopods.settings.functionlist.zenmode.scene.ZenModeReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action
+                    android:name="com.coloros.oppopods.zenmode.scene.NOTIFICATION_CLICKED"/>
+            </intent-filter>
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data
+            android:name="com.oplus.support:api-adapter"
+            android:value="11.8.0"/>
+        <meta-data
+            android:name="sau_aar_version_code"
+            android:value="2101"/>
+        <meta-data
+            android:name="sau_aar_version_name"
+            android:value="2.1.1"/>
+        <provider
+            android:name="com.oplus.tingle.ipc.internal.TingleProvider"
+            android:exported="false"
+            android:multiprocess="true"
+            android:authorities="com.coloros.oppopods.tingle"
+            android:directBootAware="true"/>
+        <provider
+            android:name="com.oplus.epona.internal.EponaProvider"
+            android:permission="com.oppo.permission.safe.SECURITY"
+            android:exported="true"
+            android:multiprocess="true"
+            android:authorities="com.coloros.oppopods.epona"
+            android:directBootAware="true"/>
+        <meta-data
+            android:name="com.oplus.epona:epona"
+            android:value="2.0.0"/>
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:exported="false"
+            android:directBootAware="true"/>
     </application>
-
 </manifest>
